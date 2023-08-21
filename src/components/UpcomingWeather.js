@@ -16,7 +16,7 @@ const DATA = [
     ],
   },
   {
-    dt_txt: "2023-02-18 12:00:00",
+    dt_txt: "2023-02-18 15:00:00",
     main: {
       temp_max: 8.55,
       temp_min: 7.55,
@@ -54,12 +54,22 @@ const Item = (props) => {
 };
 
 const UpcomingWeather = () => {
+  const renderItem = ({ item }) => (
+    <Item
+      condition={item.weather.main}
+      dt_txt={item.dt_txt}
+      min={item.main.temp_min}
+      max={item.main.temp_max}
+    />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <Text>Upcoming Weather</Text>
       <FlatList
         data={DATA}
-        // renderItem={}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.dt_txt}
       />
     </SafeAreaView>
   );
