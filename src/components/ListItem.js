@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Text, StyleSheet, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
@@ -38,3 +39,11 @@ const styles = StyleSheet.create({
 });
 
 export default Item;
+
+Item.propTypes = {
+  dt_txt: PropTypes.string,
+  date: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  condition: PropTypes.string,
+};
