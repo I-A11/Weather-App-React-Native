@@ -7,6 +7,7 @@ import {
   StatusBar,
   View,
 } from "react-native";
+import PropTypes from "prop-types";
 import moment from "moment";
 import IconText from "../components/IconText";
 
@@ -29,7 +30,7 @@ const City = ({ weatherData }) => {
     <SafeAreaView style={container}>
       <ImageBackground
         style={image}
-        source={require("../../assets/city-background.jpg")}
+        source={require("../../assets/city-sydney.jpg")}
       >
         <Text style={[cityName, cityText]}>{name}</Text>
         <Text style={[countryName, cityText]}>{country}</Text>
@@ -103,3 +104,7 @@ const styles = StyleSheet.create({
 });
 
 export default City;
+
+City.propTypes = {
+  weatherData: PropTypes.object,
+};

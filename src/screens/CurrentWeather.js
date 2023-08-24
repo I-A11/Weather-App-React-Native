@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import RowText from "../components/RowText";
@@ -22,19 +23,19 @@ const CurrentWeather = ({ weatherData }) => {
     weather,
   } = weatherData;
 
-  const weatherCondition = weather[0].main;
+  const weatherCondition = weather[0]?.main;
   // console.log(weatherData);
 
   return (
     <SafeAreaView
       style={[
         wrapper,
-        { backgroundColor: weatherType[weatherCondition].backgroundColor },
+        { backgroundColor: weatherType[weatherCondition]?.backgroundColor },
       ]}
     >
       <View style={container}>
         <Feather
-          name={weatherType[weatherCondition].icon}
+          name={weatherType[weatherCondition]?.icon}
           size={100}
           color="white"
         />
@@ -49,8 +50,8 @@ const CurrentWeather = ({ weatherData }) => {
         />
       </View>
       <RowText
-        messageOne={weather[0].description}
-        messageTwo={weatherType[weatherCondition].message}
+        messageOne={weather[0]?.description}
+        messageTwo={weatherType[weatherCondition]?.message}
         containerStyles={bodyWrapper}
         messageOneStyle={description}
         messageTwoStyle={message}
@@ -62,7 +63,6 @@ const CurrentWeather = ({ weatherData }) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: "pink",
   },
   container: {
     flex: 1,
@@ -91,11 +91,15 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   description: {
-    fontSize: 48,
+    fontSize: 43,
   },
   message: {
-    fontSize: 30,
+    fontSize: 25,
   },
 });
 
 export default CurrentWeather;
+
+CurrentWeather.propTypes = {
+  weatherData: PropTypes.object,
+};
