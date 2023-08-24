@@ -23,8 +23,6 @@ export const useGetWeather = () => {
       setLoading(false);
     }
   };
-  // console.log("lat:", lat);
-  // console.log("lon:", lon);
 
   useEffect(() => {
     (async () => {
