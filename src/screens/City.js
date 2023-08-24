@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   ImageBackground,
-  StatusBar,
+  // StatusBar,
   View,
 } from "react-native";
 import PropTypes from "prop-types";
@@ -28,10 +28,7 @@ const City = ({ weatherData }) => {
   const { name, country, population, sunrise, sunset } = weatherData;
   return (
     <SafeAreaView style={container}>
-      <ImageBackground
-        style={image}
-        source={require("../../assets/city-sydney.jpg")}
-      >
+      <ImageBackground style={image} source={require("../../assets/city.jpg")}>
         <Text style={[cityName, cityText]}>{name}</Text>
         <Text style={[countryName, cityText]}>{country}</Text>
         <View style={[populationWrapper, rowLayout]}>
@@ -64,7 +61,7 @@ const City = ({ weatherData }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    // marginTop: StatusBar.currentHeight || 0,
   },
   image: {
     flex: 1,

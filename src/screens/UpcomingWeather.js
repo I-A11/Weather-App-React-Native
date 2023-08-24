@@ -1,12 +1,11 @@
 import React from "react";
 import {
-  Text,
   StyleSheet,
   SafeAreaView,
   FlatList,
-  StatusBar,
   ImageBackground,
 } from "react-native";
+import PropTypes from "prop-types";
 import ListItem from "../components/ListItem";
 
 const UpcomingWeather = ({ weatherData }) => {
@@ -38,7 +37,6 @@ const UpcomingWeather = ({ weatherData }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
     backgroundColor: "royalblue",
   },
   item: {
@@ -64,3 +62,7 @@ const styles = StyleSheet.create({
   },
 });
 export default UpcomingWeather;
+
+UpcomingWeather.propTypes = {
+  weatherData: PropTypes.array,
+};
